@@ -1,1 +1,2 @@
-docker build . -t="pybind"
+#docker build -t="pybind" --progress=plain . 
+docker build -t="pybind" . 
