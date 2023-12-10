@@ -6,7 +6,7 @@ cmake_minimum_required(VERSION 3.20)
 
 # This is your project statement. You should always list languages;
 # Listing the version is nice here since it sets lots of useful variables
-project(cmake_example)
+project(cwrap)
 
 # If you set any CMAKE_ variables, that can go here.
 # (But usually don't do this, except maybe for C++ standard)
@@ -28,10 +28,10 @@ include_directories(${PYTHON_INCLUDE_DIRS})
 
 # Adding something we can run - Output name matches target name
 #add_executable(runme src/main.cpp)
-pybind11_add_module(cmake_example src/main.cpp)
+pybind11_add_module(cwrap src/main.cpp)
 
 # Make sure you link your targets with this command. It can also link libraries and
 # even flags, so linking a target that does not exist will not give a configure-time error.
 #target_link_libraries(runme PRIVATE MyLibExample)
-#target_link_libraries(cmake_example ${PYTHON_LIBRARIES})
-target_compile_definitions(cmake_example PRIVATE)
+#target_link_libraries(cwrap ${PYTHON_LIBRARIES})
+target_compile_definitions(cwrap PRIVATE)
