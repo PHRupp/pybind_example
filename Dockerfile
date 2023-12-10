@@ -14,4 +14,4 @@ WORKDIR ${app_dir}
 COPY . ${app_dir}
 
 #RUN mkdir build; cd build; cmake ../ && make;
-RUN pip install .
+RUN pip install .; pip wheel . --no-deps

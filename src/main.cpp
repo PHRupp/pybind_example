@@ -1,3 +1,7 @@
+//standard libs
+#include <string>
+
+//3rd party libs
 #include <pybind11/pybind11.h>
 
 namespace py = pybind11;
@@ -18,9 +22,14 @@ Msg add(int i, int j) {
     return Msg( (double)i+j );
 }
 
+std::string printMsg(Msg in_msg) {
+	return "Value = " + std::to_string(in_msg.d.b);
+}
+
 PYBIND11_MODULE(cwrap, m) {
     m.doc() = "";
     m.def("add", &add);
+    m.def("printMsg", &printMsg);
 	py::class_<Msg>(m, "Msg")
 		.def(py::init<int>(), "Msg", py::arg("f"))
 		.def_readwrite("d", &Msg::d)
